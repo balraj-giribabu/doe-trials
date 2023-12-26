@@ -2,7 +2,7 @@ pipeline{
     agent any
     stages{
         
-        stage("verifying changes"){
+        stage("Verifying"){
             steps{
                 
                 script{
@@ -13,18 +13,21 @@ pipeline{
                     
                     for (item in changedFiles){
                         if(item=="package.json"){
-                        package_json_updated = true
+                            package_json_updated = true
                         }
                     }
                     
-                    if(package_json_updated){
-                        println "perform npm install and other 3 cmds"
-                        println package_json_updated
+                    stage("Deploying"){
+                        if(package_json_updated){
+                            println "perform npm install and other 3 cmds"
+                            println package_json_updated
+                        }
+                        else{
+                            println "perform other 3 commands only"
+                            println package_json_updated
+                        }
                     }
-                    else{
-                        println "perform other 3 commands only"
-                        println package_json_updated
-                    }
+                    
                 }
             }
         }
@@ -44,6 +47,5 @@ List<String> changes_method(){
              }
         }
     }
-    print changedFiles_2
     return changedFiles_2
 }
