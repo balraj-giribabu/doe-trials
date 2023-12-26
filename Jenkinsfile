@@ -17,9 +17,11 @@ pipeline{
                     
                     if(package_json_updated){
                         println "perform npm install and other 3 cmds"
+                        println package_json_updated
                     }
                     else{
                         println "perform other 3 commands only"
+                        println package_json_updated
                     }
                 }
             }
