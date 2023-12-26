@@ -9,14 +9,11 @@ pipeline{
                     List<String> changedFiles = changes_method()
                     println "changed files list"
                     println changedFiles
-                    
-                    for (item in changedFiles){
-                        if(item=="package.json"){
-                            println "perform npm install and other 3 cmds"
-                        }
-                        else{
-                            println "perform other 3 commands only"
-                        }
+                    if("package.json" in changedFiles){
+                        println "perform npm install and other 3 cmds"
+                    }
+                    else{
+                        println "perform other 3 commands only"
                     }
                 }
             }
