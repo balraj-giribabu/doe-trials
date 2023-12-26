@@ -27,7 +27,6 @@ pipeline{
 @NonCPS
 
 List<String> changes_method(){
-    println "called changes_method function"
     def changedFiles_2 = []
     def changeLogSets = currentBuild.changeSets
     for (entries in changeLogSets) {
