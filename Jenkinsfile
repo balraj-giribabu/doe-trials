@@ -8,7 +8,7 @@ pipeline{
                 script{
                     List<String> changedFiles = changes_method()
                     println "changed files list"
-                    println changedFiles_2
+                    println changedFiles
                     
                     for (item in changedFiles){
                         if(item=="package.json"){
