@@ -11,7 +11,7 @@ pipeline{
                     println "changed files list"
                     println changedFiles
                     
-                    if (changedFiles("package.json"){
+                    if (changedFiles.contains("package.json")){
                         package_json_updated = true
                     }
                     
