@@ -7,9 +7,15 @@ pipeline{
                 
                 script{
                     List<String> changedFiles = changes_method()
+                    def package_json_updated = false
                     println "changed files list"
                     println changedFiles
-                    if("package.json" in changedFiles){
+                    
+                    if ("package.json" in changedFiles){
+                        package_json_updated = true
+                    }
+                    
+                    if(package_json_updated){
                         println "perform npm install and other 3 cmds"
                     }
                     else{
