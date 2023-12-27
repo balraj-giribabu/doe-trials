@@ -19,7 +19,12 @@ pipeline{
                     
                     stage("Deploying"){
                         if(package_json_updated){
-                            println "perform npm install and other 3 cmds"
+                            bat """
+                            mkdir test-dir1
+                            mkdir test-dir2
+                            rmdir test-dir1 /s /q
+                            rmdir test-dir2 /s /q
+                            """
                             println package_json_updated
                         }
                         else{
